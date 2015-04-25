@@ -9,7 +9,7 @@ namespace Vida {
     private JournalEntry text_editor;
     private Gtk.Box main_box;
     private Gtk.Box box_buttons;
-    private Gtk.Box box_content;
+    private Gtk.ScrolledWindow content_windown;
 
     static int main (string [] args) {
       Gtk.init (ref args);
@@ -48,7 +48,7 @@ namespace Vida {
     private void create_boxes () {
       main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 10);
       box_buttons = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 5);
-      box_content = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+      content_windown = new Gtk.ScrolledWindow (null, null);
     }
 
     private void create_buttons () {
@@ -70,12 +70,13 @@ namespace Vida {
     }
 
     private void add_text_editor () {
-      box_content.add (text_editor);
+      // content_windown.pack_start (text_editor, true, true, 0);
+      content_windown.add (text_editor);
     }
 
     private void fill_and_add_main_box () {
       main_box.add (box_buttons);
-      main_box.add (box_content);
+      main_box.add (content_windown);
       this.add (main_box);
     }
 
