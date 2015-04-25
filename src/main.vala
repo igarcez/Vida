@@ -23,6 +23,7 @@ namespace Vida {
 
     public Vida () {
       title = "Vida";
+      border_width = 10;
 
       create_layout ();
       connect_signals ();
@@ -30,8 +31,8 @@ namespace Vida {
 
     private void create_layout () {
       // move buttons to top bar
-      main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
-      box_buttons = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+      main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 10);
+      box_buttons = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 5);
       box_content = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
 
       // todo change add new, calendar and image to icons
