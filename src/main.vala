@@ -11,6 +11,9 @@ namespace Vida {
     private Gtk.Box box_buttons;
     private Gtk.ScrolledWindow content_windown;
 
+    // helpers
+    private int key_press_count;
+
     static int main (string [] args) {
       Gtk.init (ref args);
 
@@ -23,8 +26,10 @@ namespace Vida {
 
     public Vida () {
       title = "Vida";
-      border_width = 10;
+      border_width = 0;
       set_default_size (800, 600);
+
+      key_press_count = 0;
 
       create_layout ();
       connect_signals ();
@@ -46,7 +51,7 @@ namespace Vida {
     }
 
     private void create_boxes () {
-      main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 10);
+      main_box = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
       box_buttons = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 5);
       content_windown = new Gtk.ScrolledWindow (null, null);
     }
@@ -70,7 +75,7 @@ namespace Vida {
     }
 
     private void add_text_editor () {
-      // content_windown.pack_start (text_editor, true, true, 0);
+      content_windown.set_min_content_height (450);
       content_windown.add (text_editor);
     }
 
@@ -81,7 +86,17 @@ namespace Vida {
     }
 
     private void connect_signals () {
+      this.key_press_event.connect (on_key_pressed);
+    }
 
+    private bool on_key_pressed () {
+      key_press_count++;
+      key_press_count %= 30;
+      if (key_press_count == 0) {
+        // todo text_editor.save ();
+        stdout.printf ("saving the text now");
+      }
+      return false;
     }
   }
 }
