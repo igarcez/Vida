@@ -14,7 +14,8 @@ namespace Vida {
       check_and_create_db ();
     }
 
-    public int save_entry () {
+    public int save_entry (HashMap<string, string> entry) {
+      stdout.printf ("content is %s", entry.get ("content"));
       return 0;
     }
 
