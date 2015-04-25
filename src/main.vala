@@ -6,7 +6,7 @@ namespace Vida {
     private Gtk.Button go_to_today_button;
     private Gtk.Button calendar_view_button;
     private Gtk.Button add_image_button;
-    private Gtk.TextView text_editor;
+    private JournalEntry text_editor;
     private Gtk.Box main_box;
     private Gtk.Box box_buttons;
     private Gtk.Box box_content;
@@ -24,6 +24,7 @@ namespace Vida {
     public Vida () {
       title = "Vida";
       border_width = 10;
+      set_default_size (800, 600);
 
       create_layout ();
       connect_signals ();
@@ -53,7 +54,7 @@ namespace Vida {
     private void create_buttons () {
       add_entry_button = new Gtk.Button.with_label ("Add new Entry");
       go_to_today_button = new Gtk.Button.with_label ("Today");
-      calendar_view_button = new Gtk.Button.with_label ("calendar");
+      calendar_view_button = new Gtk.Button.with_label ("Calendar");
       add_image_button = new Gtk.Button.with_label ("Add image");
     }
 
@@ -65,7 +66,7 @@ namespace Vida {
     }
 
     private void create_text_editor () {
-      text_editor = new Gtk.TextView ();
+      text_editor = new JournalEntry ();
     }
 
     private void add_text_editor () {
