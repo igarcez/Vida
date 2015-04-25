@@ -10,6 +10,7 @@ namespace Vida {
     private Gtk.Box main_box;
     private Gtk.Box box_buttons;
     private Gtk.ScrolledWindow content_windown;
+    public DbWrapper db;
 
     // helpers
     private int key_press_count;
@@ -30,6 +31,8 @@ namespace Vida {
       set_default_size (800, 600);
 
       key_press_count = 0;
+
+      db = new DbWrapper ();
 
       create_layout ();
       connect_signals ();
@@ -93,8 +96,8 @@ namespace Vida {
       key_press_count++;
       key_press_count %= 30;
       if (key_press_count == 0) {
-        // todo text_editor.save ();
         stdout.printf ("saving the text now");
+        text_editor.save (db);
       }
       return false;
     }
