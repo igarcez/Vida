@@ -7,9 +7,8 @@ namespace Vida {
       right_margin = 10;
     }
 
-    public bool save (DbWrapper db) {
-      string[] columns = {"one", "two"};
-      int result = db.create_table ("teste", columns);
+    public bool save (DbWrapper db_wrapper) {
+      int result = db_wrapper.save_entry ();
       stdout.printf ("check db %s", result.to_string ());
       return false;
     }
