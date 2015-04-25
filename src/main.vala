@@ -1,0 +1,5 @@
+using Gtk;
+
+namespace Vida {
+
+}
