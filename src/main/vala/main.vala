@@ -15,15 +15,15 @@ namespace Vida {
     // helpers
     private int key_press_count;
 
-    static int main (string [] args) {
-      Gtk.init (ref args);
+    // static int main (string [] args) {
+    //   Gtk.init (ref args);
 
-      var vd = new Vida();
-      vd.show_all ();
+    //   var vd = new Vida();
+    //   vd.show_all ();
 
-      Gtk.main ();
-      return 0;
-    }
+    //   Gtk.main ();
+    //   return 0;
+    // }
 
     public Vida () {
       title = "Vida";
