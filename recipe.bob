@@ -1,0 +1,15 @@
+{
+  "project" : {
+    "name" : "Vida",
+    "shortName" : "vida",
+    "version" : "0.0.1",
+    "dependencies" : [
+      { "dependency" : "glib", "version" : "2.0" },
+      { "dependency" : "gobject", "version" : "2.0", "scope" : "both" },
+      { "dependency" : "gtk+", "version" : "3.0", "scope" : "both" },
+      { "dependency" : "gee", "version": "0.8", "scope" : "both"}
+      { "dependency" : "sqlite3", "scope" : "both"}
+
+    ]
+  }
+}
