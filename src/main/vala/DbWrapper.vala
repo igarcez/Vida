@@ -30,7 +30,8 @@ namespace Vida {
 
     private int check_and_create_db () {
       int rc;
-      rc = Database.open ("./db/testdb2", out db);
+      // TODO change to use a file on ~/.vida or something like that
+      rc = Database.open ("./src/main/vala/db/testdb2", out db);
       if (rc != Sqlite.OK) {
         stderr.printf ("Can't open database: %d, %s\n", rc, db.errmsg ());
         return 0;
