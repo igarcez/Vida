@@ -18,10 +18,15 @@ public class ShellModel : BaseModel
 		content_changed(fileContent);
 	}
 
+	public void newEntry() {
+		// for now, just clean the text
+		content_changed("");
+	}
+
 	public void show() {
 		View.show();
 	}
-	
+
 	public void close() {
 		Gtk.main_quit();
 	}
